@@ -41,6 +41,18 @@ public class ServiceImpl implements StudentService{
 		Studentrepository.deleteById(id);
 	}
 
+	@Override
+	public Student updateStudent(int id, Student std) {
+		Student st = Studentrepository.findById(id).get();
+		
+		
+		st.setFirstName(std.getFirstName());
+		st.setLastName(std.getLastName());
+		st.setEmail(std.getEmail());
+		
+		return Studentrepository.save(st);
+	}
+
 	
 
 	
